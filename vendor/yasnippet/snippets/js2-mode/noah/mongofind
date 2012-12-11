@@ -1,0 +1,6 @@
+#Author : Noah Isaacson <clewfirst@gmail.com>
+#name : <model>.find({params}, function(error, result) {...});
+# --
+$1.find({$2}, function(error, result) {
+  $0;
+});

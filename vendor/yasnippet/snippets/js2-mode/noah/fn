@@ -1,0 +1,6 @@
+#Author : Noah Isaacson <clewfirst@gmail.com>
+#name : function(error, reply) { ... });
+# --
+function (${1:err}, ${2:reply}) {
+   $0
+});

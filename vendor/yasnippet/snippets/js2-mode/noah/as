@@ -1,0 +1,16 @@
+#Author : Noah Isaacson <clewfirst@gmail.com>
+#name : async.series([function(cb) { ... });
+# --
+async.series([
+  function (cb) {
+   $0
+   cb();
+  },
+  function (cb) {
+    cb();
+  },
+  function (cb) {
+    cb();
+  },
+  ], function(err) {
+  });

@@ -5,6 +5,10 @@
 ;; (global-set-key (kbd "C-,") 'shift-left)
 (global-set-key (kbd "C-s") 'isearch-forward)
 (global-set-key (kbd "C-r") 'isearch-backward)
+(global-set-key [C-tab]
+    (lambda ()
+      (interactive)
+      (other-window -1)))
 
 (add-hook 'python-mode-hook (local-set-key (kbd "C-c c") 'comment-or-uncomment-region))
 (add-hook 'python-mode-hook (local-set-key (kbd "C-c i") 'camelCase-mode))

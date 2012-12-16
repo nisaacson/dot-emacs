@@ -13,8 +13,12 @@
 (require 'ido)
 (require 'sudo-save)
 
-(require 'color-theme)
+;; (require 'color-theme)
+(add-to-list 'custom-theme-load-path "~/.emacs.d/vendor/emacs-color-theme-solarized")
+;; (require 'solarized)
+(load-theme 'solarized-dark t)
 
+(add-to-list 'default-frame-alist '(background-mode . dark))
 
 ;; Uniquify
 (require 'uniquify)
@@ -23,15 +27,12 @@
 (setq uniquify-after-kill-buffer-p t)
 (setq uniquify-ignore-buffers-re "^\\*")
 
-(color-theme-initialize)
-(load-file "~/.emacs.d/site-lisp/noah/color-theme-twilight-noah.el")
-(load-file "~/.emacs.d/site-lisp/noah/color-theme-ps-warm.el")
+;; (load-file "~/.emacs.d/site-lisp/noah/color-theme-twilight-noah.el")
+;; (load-file "~/.emacs.d/site-lisp/noah/color-theme-ps-warm.el")
 
 (load-file "~/.emacs.d/site-lisp/noah/smart-tab-everywhere.el")
 (add-hook 'before-save-hook 'whitespace-cleanup)
 
-(color-theme-twilight-noah)
-(color-theme-twilight-noah)
 (require 'apache-mode)
 (require 'cuda-mode)
 (require 'yaml-mode)
@@ -79,9 +80,9 @@
 ;; put all autosave files in the system temp directory e.g. 'C:\temp' or '/tmp'
 
 (setq backup-directory-alist
-          `((".*" . ,temporary-file-directory)))
+    `((".*" . ,temporary-file-directory)))
     (setq auto-save-file-name-transforms
-          `((".*" ,temporary-file-directory t)))
+    `((".*" ,temporary-file-directory t)))
 
 ;; Always delete trailing whitespace
 ;; (add-hook 'before-save-hook (lambda () (delete-trailing-whitespace)))
@@ -124,9 +125,9 @@
 ;; C# setup
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-hook 'csharp-mode-hook
-          '(lambda ()
-             (c-set-style k&r))
-          )
+    '(lambda ()
+       (c-set-style k&r))
+    )
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -270,9 +271,9 @@
 ;; visual stuff
 ;;;;;;;;;;;;;;;;;;;;
 (setq-default fill-column 80)
-(defun ash-term-hooks ()
-(setq term-default-bg-color (face-background 'default))
-(setq term-default-fg-color (face-foreground 'default)))
+(defun ash-term-hooks ())
+;; (setq term-default-bg-color (face-background 'default))
+;; (setq term-default-fg-color (face-foreground 'default)))
 (add-hook 'term-mode-hook 'ash-term-hooks)
 
 (setq split-height-threshold nil)
@@ -282,7 +283,7 @@
 (defun what-face (pos)
   (interactive "d")
   (let ((face (or (get-char-property (point) 'read-face-name)
-                  (get-char-property (point) 'face))))
+      (get-char-property (point) 'face))))
     (if face (message "Face: %s" face) (message "No face at %d" pos))))
 
 (setq toolbar nil)
@@ -304,6 +305,7 @@
  '(c-basic-offset 2)
  '(c-default-style "k&r")
  '(c-hanging-braces-alist (quote ((block-close . c-snug-do-while) (statement-cont) (substatement-open after) (extern-lang-open after) (namespace-open after) (module-open after) (composition-open after) (inexpr-class-open after) (inexpr-class-close before) (arglist-cont-nonempty))))
+ '(custom-safe-themes (quote ("fc5fcb6f1f1c1bc01305694c59a1a861b008c534cae8d0e48e4d5e81ad718bc6" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" default)))
  '(delete-old-versions t)
  '(exec-path (quote ("/usr/local/bin" "/usr/bin" "/bin" "/usr/sbin" "/sbin" "/usr/X11/bin" "/Users/noah/bin")))
  '(hl-paren-colors (quote ("firebrick1" "" "" "")))
@@ -318,24 +320,26 @@
  '(python-python-command "/usr/local/bin/python")
  '(scroll-bar-mode nil)
  '(show-paren-style (quote expression))
+ '(solarized-contrast (quote low))
  '(split-width-threshold 1600)
  '(tool-bar-mode nil)
  '(vc-follow-symlinks nil))
-(custom-set-faces
+
+;; (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ac-candidate-face ((t (:background "controlHighlightColor" :foreground "Blue"))))
- '(font-lock-comment-face ((t (:foreground "#AF5D00"))))
- '(font-lock-warning-face ((t (:background "black" :foreground "red"))))
- '(js2-external-variable-face ((t (:foreground "#FF3333"))))
- '(mumamo-background-chunk-major ((((class color) (min-colors 88) (background dark)) (:background "#0f0f0f"))))
- '(mumamo-background-chunk-submode ((t nil)))
- '(mumamo-background-chunk-submode1 ((((class color) (min-colors 88) (background dark)) (:background "#1F1F1F"))))
- '(secondary-selection ((t (:background "controlTextColor"))))
- '(show-paren-match ((t (:foreground "#34C24A"))))
- '(yas-field-highlight-face ((t (:inherit (quote background-region))))))
+ ;; '(ac-candidate-face ((t (:background "controlHighlightColor" :foreground "Blue"))))
+ ;; '(font-lock-comment-face ((t (:foreground "#AF5D00"))))
+ ;; '(font-lock-warning-face ((t (:background "black" :foreground "red"))))
+ ;; '(js2-external-variable-face ((t (:foreground "#FF3333"))))
+ ;; '(mumamo-background-chunk-major ((((class color) (min-colors 88) (background dark)) (:background "#0f0f0f"))))
+ ;; '(mumamo-background-chunk-submode ((t nil)))
+ ;; '(mumamo-background-chunk-submode1 ((((class color) (min-colors 88) (background dark)) (:background "#1F1F1F"))))
+ ;; '(secondary-selection ((t (:background "controlTextColor"))))
+ ;; '(show-paren-match ((t (:foreground "#34C24A"))))
+ ;; '(yas-field-highlight-face ((t (:inherit (quote background-region))))))
 
 
 (defun term() (interactive)
@@ -364,3 +368,10 @@
 ;; ;;  ;; optional keyboard short-cut
 ;; ;;  (global-set-key "\C-xm" 'browse-url-at-point)
 ;; (require 'w3m)
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(hl-line ((t (:background "#E1E1B2"))) t)
+ '(ido-only-match ((t (:background "#003946" :foreground "green" :weight bold)))))

@@ -45,7 +45,7 @@
 ;; (require 'ac-anything)
 ;; (add-to-list 'ac-dictionary-directories "~/.emacs.d/vendor/ac-dict")
 ;; ; Use dictionaries by default
-;; (set-default 'ac-sources '(ac-source-yasnippet ac-source-abbrev ac-source-words-in-buffer ac-source-dictionary))
+(set-default 'ac-sources '(ac-source-abbrev ac-source-yasnippet  ac-source-words-in-buffer ac-source-dictionary))
 ;; (global-auto-complete-mode t)
 ;; ; Start auto-completion after 2 characters of a word
 ;; (setq ac-auto-start 2)
@@ -58,7 +58,7 @@
 ;;    '(anything-c-source-buffers
 ;;      anything-c-source-file-name-history
 ;;      anything-imenu
-;;     anything-c-source-emacs-commands)
+;;      anything-c-source-emacs-commands)
 ;;    " *my-anything*"))
 
 

@@ -36,6 +36,7 @@
 (global-set-key (kbd "C-M-<backspace>") 'backward-kill-sexp)
 
 (global-set-key (kbd "C-c i") 'camelCase-mode)
+(global-set-key (kbd "C-c o") 'quoted-insert)
 (global-set-key (kbd "C-c n") 'bc-next)
 (global-set-key (kbd "C-c p") 'bc-previous)
 (global-set-key (kbd "C-c s") 'bc-set)
@@ -85,7 +86,7 @@
 ;;           (dabbrev-expand nil)
 ;;         (indent-for-tab-command)))))
                                         ;Make other-frame instinctive
-(global-set-key (kbd "C-c o") 'other-frame)
+;; (global-set-key (kbd "C-c o") 'other-frame)
 
 ;; better buffer switching
 (global-set-key (kbd "<f9>") 'bs-show)

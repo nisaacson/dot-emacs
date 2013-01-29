@@ -44,7 +44,24 @@
 (require 'sws-mode)
 (require 'jade-mode)
 ;; (require 'make-mark-visible)
-(require 'markdown-mode);
+
+
+(require 'markdown-mode)
+;;
+;; enable a more powerful jump back function from ace jump mode
+;;
+(autoload
+  'ace-jump-mode-pop-mark
+  "ace-jump-mode"
+  "Ace jump back:-)"
+  t)
+(define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
+(define-key global-map (kbd "C-c C-u SPC") 'ace-jump-char-mode)
+(eval-after-load "ace-jump-mode"
+  '(ace-jump-mode-enable-mark-sync))
+(define-key global-map (kbd "C-x SPC") 'ace-jump-mode-pop-mark)
+
+
 ;; (autoload 'markdown-mode "markdown-model.el"
 ;;   "Major mode for editing files" t)
 (setq auto-mode-alist
@@ -121,6 +138,12 @@
 (add-hook 'find-file-hook '(lambda () (camelCase-mode 1)))
 (add-hook 'php-mode-hook '(lambda () (camelCase-mode 1)))
 (add-hook 'python-mode-hook '(lambda () (camelCase-mode 1)))
+
+(add-hook 'js2-mode-hook '(lambda () (camelCase-mode 1)))
+
+(add-hook 'makefile-mode-hook
+      '(lambda()
+        (setq indent-tabs-mode t)))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; C# setup
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -311,10 +334,10 @@
  '(hl-paren-colors (quote ("firebrick1" "" "" "")))
  '(ido-auto-merge-delay-time 0.3)
  '(ido-default-buffer-method (quote selected-window))
- '(js2-global-externs (list "$" "jQuery" "iimDisplay" "iimPlay" "iimGetLastError" "iimGetLastExtract" "log_error" "breakpoint" "window" "require" "console" "exports" "process" "it" "describe" "before" "beforeEach" "after" "afterEach" "setTimeout" "__dirname" "module" "Buffer"))
+ '(js2-global-externs (list "$" "jQuery" "iimDisplay" "iimPlay" "iimGetLastError" "iimGetLastExtract" "log_error" "breakpoint" "window" "require" "console" "exports" "process" "it" "describe" "before" "beforeEach" "after" "afterEach" "setTimeout" "__dirname" "module" "Buffer" "setInterval" "clearInterval"))
  '(js2-strict-inconsistent-return-warning nil)
- '(js2-strict-missing-semi-warning nil)
- '(js2-strict-trailing-comma-warning nil)
+ '(js2-strict-missing-semi-warning t)
+ '(js2-strict-trailing-comma-warning t)
  '(kill-ring-max 5000)
  '(markdown-css-path "http://twitter.github.com/bootstrap/assets/css/bootstrap.css")
  '(python-python-command "/usr/local/bin/python")
@@ -373,5 +396,6 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(font-lock-constant-face ((t (:foreground "#81908f" :inverse-video nil :underline nil :slant normal :weight normal))))
  '(hl-line ((t (:background "#E1E1B2"))) t)
  '(ido-only-match ((t (:background "#003946" :foreground "green" :weight bold)))))

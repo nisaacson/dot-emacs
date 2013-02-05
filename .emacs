@@ -6,6 +6,9 @@
 ;; various libraries
 ;;(require 'noah_backup)
 (require 'breadcrumb)
+(require 'key-chord)
+(key-chord-mode t)
+(setq key-chord-two-keys-delay 0.5)
 (require 'doxymacs)
 (require 'highlight-symbol)
 ;(require 'browse-kill-ring)
@@ -50,11 +53,14 @@
 ;;
 ;; enable a more powerful jump back function from ace jump mode
 ;;
+
+(require 'ace-jump-mode)
 (autoload
   'ace-jump-mode-pop-mark
   "ace-jump-mode"
   "Ace jump back:-)"
   t)
+
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
 (define-key global-map (kbd "C-c C-u SPC") 'ace-jump-char-mode)
 (eval-after-load "ace-jump-mode"
@@ -347,23 +353,6 @@
  '(split-width-threshold 1600)
  '(tool-bar-mode nil)
  '(vc-follow-symlinks nil))
-
-;; (custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- ;; '(ac-candidate-face ((t (:background "controlHighlightColor" :foreground "Blue"))))
- ;; '(font-lock-comment-face ((t (:foreground "#AF5D00"))))
- ;; '(font-lock-warning-face ((t (:background "black" :foreground "red"))))
- ;; '(js2-external-variable-face ((t (:foreground "#FF3333"))))
- ;; '(mumamo-background-chunk-major ((((class color) (min-colors 88) (background dark)) (:background "#0f0f0f"))))
- ;; '(mumamo-background-chunk-submode ((t nil)))
- ;; '(mumamo-background-chunk-submode1 ((((class color) (min-colors 88) (background dark)) (:background "#1F1F1F"))))
- ;; '(secondary-selection ((t (:background "controlTextColor"))))
- ;; '(show-paren-match ((t (:foreground "#34C24A"))))
- ;; '(yas-field-highlight-face ((t (:inherit (quote background-region))))))
-
 
 (defun term() (interactive)
   (multi-term))

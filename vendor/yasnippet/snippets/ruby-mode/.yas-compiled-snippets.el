@@ -44,7 +44,7 @@
                        ("select" "select { |${1:element}| $0 }" "select { |...| ... }" nil
                         ("collections")
                         nil nil nil nil)
-                       ("collectionszip" "zip(${enums}) { |${row}| $0 }" "zip(...) { |...| ... }" nil
+                       ("zip" "zip(${enums}) { |${row}| $0 }" "zip(...) { |...| ... }" nil
                         ("collections")
                         nil nil nil nil)))
 
@@ -145,4 +145,4 @@
                         nil nil nil nil)))
 
 
-;;; Do not edit! File generated at Fri Nov  2 14:51:27 2012
+;;; Do not edit! File generated at Mon Feb  4 17:41:08 2013

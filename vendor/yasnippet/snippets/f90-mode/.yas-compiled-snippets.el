@@ -30,4 +30,4 @@
                        ("wr" "write (${1:*},${2:*}) $0" "write (*,*)" nil nil nil nil nil nil)))
 
 
-;;; Do not edit! File generated at Fri Nov  2 14:51:27 2012
+;;; Do not edit! File generated at Mon Feb  4 17:41:08 2013

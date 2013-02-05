@@ -3,6 +3,9 @@
 ;;;;;;;;;;;;;;;;;;;;
 ;; (global-set-key (kbd "C-.") 'shift-right)
 ;; (global-set-key (kbd "C-,") 'shift-left)
+
+(key-chord-define-global "df" 'ace-jump-mode)
+(key-chord-define-global "dr" 'ace-jump-char-mode)
 (global-set-key (kbd "C-s") 'isearch-forward)
 (global-set-key (kbd "C-r") 'isearch-backward)
 (global-set-key [C-tab]

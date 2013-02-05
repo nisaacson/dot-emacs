@@ -1,0 +1,4 @@
+#Author : Noah Isaacson <clewfirst@gmail.com>
+#name : var should = require('should');
+# --
+var should = require('should');

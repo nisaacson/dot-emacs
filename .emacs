@@ -2,9 +2,9 @@
 (let ((default-directory "~/.emacs.d/"))
   (normal-top-level-add-to-load-path '("."))
   (normal-top-level-add-subdirs-to-load-path))
-
 ;; various libraries
 ;;(require 'noah_backup)
+
 (require 'breadcrumb)
 (require 'key-chord)
 (key-chord-mode t)
@@ -33,7 +33,6 @@
 ;; (load-file "~/.emacs.d/site-lisp/noah/color-theme-twilight-noah.el")
 ;; (load-file "~/.emacs.d/site-lisp/noah/color-theme-ps-warm.el")
 
-(load-file "~/.emacs.d/site-lisp/noah/smart-tab-everywhere.el")
 (add-hook 'before-save-hook 'whitespace-cleanup)
 
 (require 'apache-mode)
@@ -201,58 +200,6 @@
 ;; default sources of candidates
 (require 'noah-autocomplete)
 
-;;;;;;;;;;;;;;;;;;;;
-;; python
-;;;;;;;;;;;;;;;;;;;;
-;; (require 'epy-setup) ;; It will setup other loads, it is required!
-;; (require 'epy-python) ;; If you want the python facilities [optional]
-;; ;; (require 'epy-completion) ;; If you want the autocompletion settings [optional]
-;; (require 'epy-editing) ;; For configurations related to editing [optional]
-;; (require 'epy-bindings) ;; For my suggested keybindings [optional]
-;; (epy-django-snippets) ;; load django snippets
-
-;;;;;;;;;;;;;;;;;;;;
-;; pymacs - disabled
-;;;;;;;;;;;;;;;;;;;;
-;; (autoload 'pymacs-apply "pymacs")
-;; (autoload 'pymacs-call "pymacs")
-;; (autoload 'pymacs-eval "pymacs" nil t)
-;; (autoload 'pymacs-exec "pymacs" nil t)
-;; (autoload 'pymacs-load "pymacs" nil t)
-;; (autoload 'pymacs-autoload "pymacs")
-;;(eval-after-load "pymacs"
-;;  '(add-to-list 'pymacs-load-path YOUR-PYMACS-DIRECTORY"))
-
-
-
-;;;;;;;;;;;;;;;;;;;;
-;; broader ido support
-;;;;;;;;;;;;;;;;;;;;
-;; (defvar ido-enable-replace-completing-read t)
-;;   "If t, use ido-completing-read instead of completing-read if possible.
-
-;; Set it to nil using let in around-advice for functions where the
-;; original completing-read is required.  For example, if a function
-;; foo absolutely must use the original completing-read, define some
-;; advice like this:
-
-;; ;(defadvice foo (around original-completing-read-only activate)
-;;   (let (ido-enable-replace-completing-read) ad-do-it))"
-
-;; ;; Replace completing-read wherever possible, unless directed otherwise
-;; (defadvice completing-read
-;;   (around use-ido-when-possible activate)
-;;   (if (or (not ido-enable-replace-completing-read) ; Manual override disable ido
-;;           (boundp 'ido-cur-list)) ; Avoid infinite loop from ido calling this
-;;       ad-do-it
-;;     (let ((allcomp (all-completions "" collection predicate)))
-;;       (if allcomp
-;;           (setq ad-return-value
-;;                 (ido-completing-read prompt
-;;                                allcomp
-;;                                nil require-match initial-input hist def))
-;;         ad-do-it))))
-
 (defun rename-file-and-buffer (new-name)
   "Renames both current buffer and file it's visiting to NEW-NAME."
   (interactive "sNew name: ")
@@ -322,7 +269,8 @@
 (setq inhibit-splash-screen t)
 (column-number-mode 1)
 
-(load-file "~/.emacs.d/site-lisp/noah/shortcuts.el")
+
+
 (message "Done Loading...now what?")
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -345,8 +293,6 @@
  '(js2-strict-missing-semi-warning t)
  '(js2-strict-trailing-comma-warning t)
  '(kill-ring-max 5000)
- '(markdown-css-path "http://twitter.github.com/bootstrap/assets/css/bootstrap.css")
- '(python-python-command "/usr/local/bin/python")
  '(scroll-bar-mode nil)
  '(show-paren-style (quote expression))
  '(solarized-contrast (quote low))
@@ -386,5 +332,6 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(font-lock-constant-face ((t (:foreground "#81908f" :inverse-video nil :underline nil :slant normal :weight normal))))
+ '(helm-selection ((t (:background "midnight blue" :underline t))))
  '(hl-line ((t (:background "#E1E1B2"))) t)
  '(ido-only-match ((t (:background "#003946" :foreground "green" :weight bold)))))

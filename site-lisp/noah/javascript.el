@@ -1,6 +1,12 @@
+;; (autoload 'js3-mode "js3-mode" nil t)
+;; (add-to-list 'auto-mode-alist '("\\.js$" . js3-mode))
+;; (add-to-list 'auto-mode-alist '("\\.json$" . js3-mode))
+
+
 (autoload 'js2-mode "js2-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 (add-to-list 'auto-mode-alist '("\\.json$" . js2-mode))
+
 
 (defadvice js2-reparse (before json)
   (setq js2-buffer-file-name buffer-file-name))
@@ -20,7 +26,7 @@
     (setq ad-return-value (js2-parse-assign-expr))
     ad-do-it))
 (ad-activate 'js2-parse-statement)
-(add-hook 'javascript-mode-hook
+(add-hook 'js2-mode-hook
      '(lambda()
         (yas/minor-mode-on)))
 
@@ -45,6 +51,9 @@
   (local-set-key (kbd "C-j") 'js2-newline-key))
 
 (add-hook 'js2-mode-hook 'noah-add-js2-keys)
+(add-hook 'js2-mode-hook '(lambda ()
+                            ;; (setq ac-sources '(ac-source-yasnippet ac-source-filename ac-source-files-in-current-dir ac-source-words-in-same-mode-buffers ac-source-words-in-all-buffer))))
+  (setq ac-sources '(ac-source-yasnippet ))))
 (setq js2-missing-semi-one-line-override t)
 
 

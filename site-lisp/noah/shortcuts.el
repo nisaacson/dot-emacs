@@ -30,7 +30,7 @@
 (global-set-key (kbd "C-x o") 'stop-using-minibuffer-and-other-window)
 (global-set-key (kbd "C-x o") 'stop-using-minibuffer-and-other-window)
 
-(global-set-key (kbd "C-M-y") 'anything-show-kill-ring)
+(global-set-key (kbd "C-M-y") 'helm-show-kill-ring)
 (global-set-key (kbd "C-c f") 'find-alternate-file)
 
 (global-set-key (kbd "M-p") 'fill-region-as-paragraph)
@@ -62,7 +62,7 @@
 
 ;; (global-set-key (kbd "C-\ ") 'comment-or-uncomment-region)
 
-(global-set-key (kbd "C-c C-i") 'anything-imenu)
+(global-set-key (kbd "C-c C-i") 'helm-imenu)
 (global-set-key [(tab)] 'smart-tab)
 
 

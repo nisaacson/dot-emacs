@@ -1,4 +1,0 @@
-#Author : Christopher Roach <vthakr@gmail.com>
-#name : console.log(...)
-# --
-console.log($0);

@@ -21,10 +21,7 @@
 ;;; Snippet definitions:
 ;;;
 (yas-define-snippets 'js2-mode
-                     '(("as" "async.series([\n  function (cb) {\n   $0\n   cb();\n  },\n  function (cb) {\n    cb();\n  },\n  function (cb) {\n    cb();\n  },\n  ], function(err) {\n  });" "async.series([function(cb) { ... });" nil
-                        ("noah")
-                        nil nil nil nil)
-                       ("err" "if (err) { return cb(err); }" "if (err) { return cb(err); });" nil
+                     '(("err" "if (err) { return cb(err); }" "if (err) { return cb(err); });" nil
                         ("noah")
                         nil nil nil nil)
                        ("eyes" "var inspect = require('eyespect').inspector();" "var inspect = require('eyespect'); });" nil
@@ -37,6 +34,15 @@
                         ("noah")
                         nil nil nil nil)
                        ("mongofind" "$1.find({$2}, function(error, result) {\n  $0;\n});" "<model>.find({params}, function(error, result) {...});" nil
+                        ("noah")
+                        nil nil nil nil)
+                       ("rk" "var rk = require('required-keys');" "var rk = require('required-keys');" nil
+                        ("noah")
+                        nil nil nil nil)
+                       ("sh" "var should = require('should');\n" "var should = require('should');" nil
+                        ("noah")
+                        nil nil nil nil)
+                       ("truthy" "var inspect = require('eyespect').inspector();" "var inspect = require('eyespect'); });" nil
                         ("noah")
                         nil nil nil nil)))
 
@@ -85,4 +91,4 @@
                         nil nil nil nil)))
 
 
-;;; Do not edit! File generated at Mon Feb  4 17:41:08 2013
+;;; Do not edit! File generated at Mon Feb 11 02:15:44 2013

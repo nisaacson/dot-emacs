@@ -1,4 +1,0 @@
-#Author : Noah Isaacson <clewfirst@gmail.com>
-#name : var inspect = require('eyespect'); });
-# --
-var inspect = require('eyespect').inspector();

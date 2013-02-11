@@ -1,15 +1,15 @@
 ;; ;;;;;;;;;;;;;;;;;;;;
 ;; ;; autocomplete
 ;; ;;;;;;;;;;;;;;;;;;;;
-
+(setq-default ac-sources '(ac-source-yasnippet))
 (require 'auto-complete-config)
 (add-to-list 'ac-dictionary-directories "/Users/noah/.emacs.d/vendor/autocomplete/dict")
 
-(setq-default ac-sources '(ac-source-filename ac-source-files-in-current-dir ac-source-yasnippet ac-source-words-in-buffer ac-source-words-in-same-mode-buffers ac-source-words-in-all-buffer))
 (ac-config-default)
 
 ;; (global-auto-complete-mode t)
 (setq ac-use-menu-map t)
+(setq ac-show-menu t)
 (define-key ac-completing-map "\e" 'ac-stop) ; use esc key to exit completion
 (define-key ac-complete-mode-map "\C-n" 'ac-next)
 (define-key ac-complete-mode-map "\C-p" 'ac-previous)

@@ -7,4 +7,4 @@
                        ("tit" "${1:$(make-string (string-width text) ?\\=)}\n${1:Title}\n${1:$(make-string (string-width text) ?\\=)}\n\n$0" "Document title" nil nil nil nil nil nil)))
 
 
-;;; Do not edit! File generated at Mon Feb 11 02:15:44 2013
+;;; Do not edit! File generated at Mon Feb 11 02:46:41 2013

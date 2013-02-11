@@ -71,8 +71,6 @@
 ;;   "Major mode for editing files" t)
 (setq auto-mode-alist
       (cons '("\\.md" . markdown-mode) auto-mode-alist))
-
-
 (add-to-list 'auto-mode-alist '("\\.styl$" . sws-mode))
 (add-to-list 'auto-mode-alist '("\\.jade$" . jade-mode))
 (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
@@ -84,13 +82,13 @@
     (doxymacs-mode t)
     (doxymacs-font-lock)))
 
-;; load gtags for navigating through source code
-(setq load-path (cons "/opt/local/share/gtags/" load-path))
-(autoload 'gtags-mode "gtags" "" t)
-
-;(autoload 'idomenu "idomenu" nil t)
 (require 'idomenu)
-;; (load "~/.emacs.d/vendor/nxhtml/autostart.el")
+(require 'noah-autocomplete)
+(setq-default ac-sources '(ac-source-yasnippet))
+(defun my-ac-emacs-lisp-mode ()
+  (setq ac-sources '(ac-source-symbols ac-source-functions ac-source-filename ac-source-words-in-same-mode-buffers)))
+(add-hook 'emacs-lisp-mode-hook 'my-ac-emacs-lisp-mode)
+
 (load "noah/tabs.el")
 (load "noah/shortcuts.el")
 (load "noah/javascript.el")
@@ -198,7 +196,7 @@
 
 
 ;; default sources of candidates
-(require 'noah-autocomplete)
+
 
 (defun rename-file-and-buffer (new-name)
   "Renames both current buffer and file it's visiting to NEW-NAME."

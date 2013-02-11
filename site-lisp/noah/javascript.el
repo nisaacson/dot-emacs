@@ -14,29 +14,29 @@
 
 (defadvice js2-parse-statement (around json)
   (if (and (= tt js2-LC)
-      js2-buffer-file-name
-      (string-equal (substring js2-buffer-file-name -5) ".json")
-      (eq (+ (save-excursion
-            (goto-char (point-min))
-            (back-to-indentation)
-            (while (eolp)
-              (next-line)
-              (back-to-indentation))
-            (point)) 1) js2-ts-cursor))
-    (setq ad-return-value (js2-parse-assign-expr))
+           js2-buffer-file-name
+           (string-equal (substring js2-buffer-file-name -5) ".json")
+           (eq (+ (save-excursion
+                    (goto-char (point-min))
+                    (back-to-indentation)
+                    (while (eolp)
+                      (next-line)
+                      (back-to-indentation))
+                    (point)) 1) js2-ts-cursor))
+      (setq ad-return-value (js2-parse-assign-expr))
     ad-do-it))
 (ad-activate 'js2-parse-statement)
 (add-hook 'js2-mode-hook
-     '(lambda()
-        (yas/minor-mode-on)))
+          '(lambda()
+             (yas/minor-mode-on)))
 
 (defun js2-newline-key ()
   (interactive)
   (let ((parse-status (save-excursion
                         (parse-partial-sexp (point-min) (point)))))
     (if (nth 4 parse-status)
-     ;; check if inside a block comment
-      (js2-mode-extend-comment)
+        ;; check if inside a block comment
+        (js2-mode-extend-comment)
       (newline-and-indent)
       )
 
@@ -50,12 +50,13 @@
 (defun noah-add-js2-keys ()
   (local-set-key (kbd "C-j") 'js2-newline-key))
 
+(defun my-js2-sources ()
+  (setq ac-sources '(ac-source-yasnippet ac-source-filename ac-source-words-in-buffer ac-source-words-in-same-mode-buffers )))
+
+(add-hook 'js2-mode-hook 'my-js2-sources)
 (add-hook 'js2-mode-hook 'noah-add-js2-keys)
 (add-hook 'js2-mode-hook '(lambda ()
-                            ;; (setq ac-sources '(ac-source-yasnippet ac-source-filename ac-source-files-in-current-dir ac-source-words-in-same-mode-buffers ac-source-words-in-all-buffer))))
-  (setq ac-sources '(ac-source-yasnippet ))))
-(setq js2-missing-semi-one-line-override t)
-
+                            (setq js2-missing-semi-one-line-override t)))
 
 (eval-after-load 'js2-mode
   '(progn

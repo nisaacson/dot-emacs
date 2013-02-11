@@ -2,8 +2,9 @@
 ;; ;; autocomplete
 ;; ;;;;;;;;;;;;;;;;;;;;
 (require 'auto-complete-config)
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/vendor/ac-dict")
+(add-to-list 'ac-dictionary-directories "/Users/noah/.emacs.d/vendor/autocomplete/ac-dict")
 (ac-config-default)
+
 
 ;; (global-auto-complete-mode t)
 (setq ac-use-menu-map t)

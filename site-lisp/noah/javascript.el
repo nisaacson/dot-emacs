@@ -51,7 +51,7 @@
   (local-set-key (kbd "C-j") 'js2-newline-key))
 
 (defun my-js2-sources ()
-  (setq ac-sources '(ac-source-yasnippet ac-source-filename ac-source-words-in-buffer ac-source-words-in-same-mode-buffers )))
+  (setq ac-sources '(ac-source-filename ac-source-words-in-buffer ac-source-words-in-same-mode-buffers ac-source-yasnippet )))
 
 (add-hook 'js2-mode-hook 'my-js2-sources)
 (add-hook 'js2-mode-hook 'noah-add-js2-keys)

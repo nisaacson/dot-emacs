@@ -5,4 +5,4 @@
                      '(("prop" "- (${1:id})${2:foo}\n{\n    return $2;\n}\n\n- (void)set${2:$(capitalize text)}:($1)aValue\n{\n    [$2 autorelease];\n    $2 = [aValue retain];\n}\n$0" "foo { ... } ; setFoo { ... }" nil nil nil nil nil nil)))
 
 
-;;; Do not edit! File generated at Mon Feb 11 02:46:41 2013
+;;; Do not edit! File generated at Thu Feb 14 13:33:01 2013

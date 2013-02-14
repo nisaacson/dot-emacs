@@ -1,18 +1,31 @@
 ;; ;;;;;;;;;;;;;;;;;;;;
 ;; ;; autocomplete
 ;; ;;;;;;;;;;;;;;;;;;;;
-(setq-default ac-sources '(ac-source-yasnippet))
 (require 'auto-complete-config)
-(add-to-list 'ac-dictionary-directories "/Users/noah/.emacs.d/vendor/autocomplete/dict")
+(set-default 'ac-sources
+             '(ac-source-abbrev
+               ac-source-dictionary
+               ac-source-yasnippet
+               ac-source-words-in-buffer
+               ac-source-words-in-same-mode-buffers
+               ac-source-semantic))
 
+(add-to-list 'ac-dictionary-directories "/Users/noah/.emacs.d/vendor/autocomplete/dict")
 (ac-config-default)
 
-;; (global-auto-complete-mode t)
+
+(defadvice ac-common-setup (after give-yasnippet-highest-priority activate)
+  (setq ac-sources (delq 'ac-source-yasnippet ac-sources))
+  (add-to-list 'ac-sources 'ac-source-yasnippet))
+
+(global-auto-complete-mode t)
 (setq ac-use-menu-map t)
 (setq ac-show-menu t)
 (define-key ac-completing-map "\e" 'ac-stop) ; use esc key to exit completion
 (define-key ac-complete-mode-map "\C-n" 'ac-next)
 (define-key ac-complete-mode-map "\C-p" 'ac-previous)
+;; Use TAB to complete, not cycle.
+(define-key ac-completing-map "\t" 'ac-complete)
 (setq ac-dwim t)
 
 

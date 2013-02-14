@@ -6,4 +6,4 @@
                        ("printf" "printf (\"${1:%s}\\\\n\"${1:$(if (string-match \"%\" text) \",\" \"\\);\")\n}$2${1:$(if (string-match \"%\" text) \"\\);\" \"\")}" "printf " nil nil nil nil nil nil)))
 
 
-;;; Do not edit! File generated at Mon Feb 11 02:46:41 2013
+;;; Do not edit! File generated at Thu Feb 14 13:33:00 2013

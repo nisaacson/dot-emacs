@@ -5,7 +5,7 @@
                      '(("elif" "else if (${1:condition}) {\n   $0\n} " "else if (condition) { ... }" nil nil nil nil nil nil)
                        ("else" "else {\n   $0\n} " "else { ... }" nil nil nil nil nil nil)
                        ("if" "if (${1:condition}) $2;$0" "if (condition) ..." nil nil nil nil nil nil)
-                       ("requ" "var $1 = require('${1:file}');" "var name = require(file);" nil nil nil nil nil nil)
+                       ("requ" "var $1 = require('$3');\n$0" "var name = require(file);" nil nil nil nil nil nil)
                        ("var" "var ${1:name} = ${2:value};$0" "var name = value;" nil nil nil nil nil nil)))
 
 
@@ -38,4 +38,4 @@
                         nil nil nil nil)))
 
 
-;;; Do not edit! File generated at Mon Feb 11 02:46:41 2013
+;;; Do not edit! File generated at Thu Feb 14 13:33:01 2013

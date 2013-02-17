@@ -10,4 +10,4 @@
                        ("references" "REFERENCES ${1:TableName}([${2:ColumnName}])" "REFERENCES ..." nil nil nil nil nil nil)))
 
 
-;;; Do not edit! File generated at Thu Feb 14 13:33:01 2013
+;;; Do not edit! File generated at Sat Feb 16 14:41:28 2013

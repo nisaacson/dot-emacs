@@ -20,10 +20,11 @@
 (add-to-list 'custom-theme-load-path "~/.emacs.d/vendor/emacs-color-theme-solarized")
 ;; (require 'solarized)
 (load-theme 'solarized-dark t)
-
 (add-to-list 'default-frame-alist '(background-mode . dark))
 
 ;; Uniquify
+
+(delete-selection-mode 1)
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'reverse)
 (setq uniquify-separator "/")
@@ -34,7 +35,7 @@
 ;; (load-file "~/.emacs.d/site-lisp/noah/color-theme-ps-warm.el")
 
 (add-hook 'before-save-hook 'whitespace-cleanup)
-
+(require 'expand-region)
 (require 'apache-mode)
 (require 'cuda-mode)
 (require 'yaml-mode)
@@ -46,11 +47,13 @@
 (require 'sws-mode)
 (require 'jade-mode)
 ;; (require 'make-mark-visible)
-
+(defun my-tabs-makefile-hook ()
+  (local-set-key (kbd "<tab>") '(quote insert-tab)))
+  ;; (setq indent-tabs-mode t))
+(add-hook 'makefile-mode-hook 'my-tabs-makefile-hook)
 
 (require 'markdown-mode)
-;;
-;; enable a more powerful jump back function from ace jump mode
+;;;; enable a more powerful jump back function from ace jump mode
 ;;
 
 (require 'ace-jump-mode)

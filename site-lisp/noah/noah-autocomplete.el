@@ -3,12 +3,12 @@
 ;; ;;;;;;;;;;;;;;;;;;;;
 (require 'auto-complete-config)
 (set-default 'ac-sources
-             '(ac-source-abbrev
-               ac-source-dictionary
-               ac-source-yasnippet
-               ac-source-words-in-buffer
-               ac-source-words-in-same-mode-buffers
-               ac-source-semantic))
+       '(ac-source-abbrev
+         ac-source-dictionary
+         ac-source-yasnippet
+         ac-source-words-in-buffer
+         ac-source-words-in-same-mode-buffers
+         ac-source-semantic))
 
 (add-to-list 'ac-dictionary-directories "/Users/noah/.emacs.d/vendor/autocomplete/dict")
 (ac-config-default)
@@ -24,8 +24,16 @@
 (define-key ac-completing-map "\e" 'ac-stop) ; use esc key to exit completion
 (define-key ac-complete-mode-map "\C-n" 'ac-next)
 (define-key ac-complete-mode-map "\C-p" 'ac-previous)
+(define-key ac-complete-mode-map (kbd "<tab>") 'ac-next)
+(define-key ac-complete-mode-map (kbd "<S-tab>") 'ac-previous)
+
 ;; Use TAB to complete, not cycle.
-(define-key ac-completing-map "\t" 'ac-complete)
+;; (define-key ac-complete-mode-map "\t" 'ac-complete)
+;; (define-key ac-complete-mode-map (kbd "TAB") nil)
+;; (define-key ac-completing-map "\t" nil)
+
+
+
 (setq ac-dwim t)
 
 
@@ -46,7 +54,7 @@
 (setq yas/root-directory "~/.emacs.d/vendor/yasnippet/snippets")
 (yas-global-mode)
 (yas/load-directory yas/root-directory)
-
+(define-key yas-minor-mode-map (kbd "RET") 'yas/expand)
 ;; ;; Replace yasnippets's TAB
 ;; (add-hook 'yas/minor-mode-hook
 ;;           (lambda () (define-key yas/minor-mode-map

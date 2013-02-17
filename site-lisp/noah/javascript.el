@@ -32,15 +32,17 @@
 
 (defun js2-newline-key ()
   (interactive)
-  (let ((parse-status (save-excursion
-                        (parse-partial-sexp (point-min) (point)))))
-    (if (nth 4 parse-status)
-        ;; check if inside a block comment
-        (js2-mode-extend-comment)
       (newline-and-indent)
       )
+  ;; (let ((parse-status (save-excursion
+  ;;                       (parse-partial-sexp (point-min) (point)))))
+  ;;   (if (nth 4 parse-status)
+  ;;       ;; check if inside a block comment
+  ;;       (js2-mode-extend-comment)
 
-    ))
+  ;;     )
+
+  ;;   ))
 
 
 

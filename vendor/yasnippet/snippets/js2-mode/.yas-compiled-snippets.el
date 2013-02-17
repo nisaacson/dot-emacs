@@ -18,7 +18,7 @@
                        ("err" "if (err) { return cb(err); }" "if (err) { return cb(err); });" nil
                         ("noah")
                         nil nil nil nil)
-                       ("eyes" "var inspect = require('eyespect').inspector();" "var inspect = require('eyespect'); });" nil
+                       ("es" "var inspect = require('eyespect').inspector();" "var inspect = require('eyespect'); });" nil
                         ("noah")
                         nil nil nil nil)
                        ("fn" "function (${1:err}, ${2:reply}) {\n   $0\n});" "function(error, reply) { ... });" nil
@@ -38,4 +38,4 @@
                         nil nil nil nil)))
 
 
-;;; Do not edit! File generated at Thu Feb 14 13:33:01 2013
+;;; Do not edit! File generated at Sat Feb 16 14:41:28 2013

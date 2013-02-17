@@ -6,6 +6,9 @@
 
 ;; (key-chord-define-global "df" 'ace-jump-mode)
 ;; (key-chord-define-global "dr" 'ace-jump-char-mode)
+
+(global-set-key (kbd "C-c q") 'quoted-insert)
+(global-set-key (kbd "C-o") 'er/expand-region)
 (global-set-key (kbd "C-s") 'isearch-forward)
 (global-set-key (kbd "C-r") 'isearch-backward)
 (global-set-key [C-tab]
@@ -25,7 +28,6 @@
 
 (global-set-key (kbd "C-c t") 'indent-buffer-2)
 
-;; (global-set-key (kbd "M-/") 'yas/expand)
 
 (global-set-key (kbd "C-x o") 'stop-using-minibuffer-and-other-window)
 (global-set-key (kbd "C-x o") 'stop-using-minibuffer-and-other-window)

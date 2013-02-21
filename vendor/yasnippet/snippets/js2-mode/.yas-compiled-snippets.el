@@ -24,6 +24,9 @@
                        ("fn" "function (${1:err}, ${2:reply}) {\n   $0\n});" "function(error, reply) { ... });" nil
                         ("noah")
                         nil nil nil nil)
+                       ("ins" "var inspect = require('eyespect').inspector();" "var inspect = require('eyespect'); });" nil
+                        ("noah")
+                        nil nil nil nil)
                        ("js" "JSON.stringify($0, null, ' ')\n" "JSON.stringify({ ... }, null, ' ');" nil
                         ("noah")
                         nil nil nil nil)
@@ -38,4 +41,4 @@
                         nil nil nil nil)))
 
 
-;;; Do not edit! File generated at Sat Feb 16 14:41:28 2013
+;;; Do not edit! File generated at Tue Feb 19 12:44:48 2013

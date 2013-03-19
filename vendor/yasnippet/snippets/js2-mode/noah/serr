@@ -1,10 +1,4 @@
 #Author : Noah Isaacson <clewfirst@gmail.com>
 #name : if (err) { return cb(err); });
 # --
-if (err) {
-  return cb({
-  message: '$2',
-  error: err,
-  stack: new Error().stack
-  })
-}
+if (err) { return cb(err) }

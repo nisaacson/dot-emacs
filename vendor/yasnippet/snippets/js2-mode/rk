@@ -1,4 +1,4 @@
 #Author : Noah Isaacson <clewfirst@gmail.com>
-#name : var inspect = require('eyespect'); });
+#name : var rk = require('required-keys'); });
 # --
 var rk = require('required-keys');

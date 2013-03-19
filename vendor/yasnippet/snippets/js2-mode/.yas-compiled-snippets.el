@@ -12,22 +12,25 @@
 ;;; Snippet definitions:
 ;;;
 (yas-define-snippets 'js2-mode
-                     '(("as" "async.series([\n  function (cb) {\n   $0\n   cb();\n  },\n  function (cb) {\n    cb();\n  },\n  function (cb) {\n    cb();\n  },\n  ], function(err) {\n  });" "async.series([function(cb) { ... });" nil
+                     '(("as" "async.series([\n  function (cb) {\n   $0\n   cb()\n  },\n  function (cb) {\n    cb()\n  },\n  function (cb) {\n    cb()\n  },\n  ], function(err) {\n  })" "async.series([function(cb) { ... });" nil
                         ("noah")
                         nil nil nil nil)
-                       ("err" "if (err) { return cb(err); }" "if (err) { return cb(err); });" nil
+                       ("err" "if (err) { return cb(err) }" "if (err) { return cb(err); });" nil
                         ("noah")
                         nil nil nil nil)
                        ("es" "var inspect = require('eyespect').inspector();" "var inspect = require('eyespect'); });" nil
                         ("noah")
                         nil nil nil nil)
-                       ("fn" "function (${1:err}, ${2:reply}) {\n   $0\n});" "function(error, reply) { ... });" nil
+                       ("fn" "function (${1:err}, ${2:reply}) {\n   $0\n})" "function(error, reply) { ... });" nil
                         ("noah")
                         nil nil nil nil)
                        ("ins" "var inspect = require('eyespect').inspector();" "var inspect = require('eyespect'); });" nil
                         ("noah")
                         nil nil nil nil)
                        ("js" "JSON.stringify($0, null, ' ')\n" "JSON.stringify({ ... }, null, ' ');" nil
+                        ("noah")
+                        nil nil nil nil)
+                       ("lerr" "if (err) {\n  return cb({\n  message: '$2',\n  error: err,\n  stack: new Error().stack\n  })\n}\n" "if (err) { return cb(err); });" nil
                         ("noah")
                         nil nil nil nil)
                        ("mongofind" "$1.find({$2}, function(error, result) {\n  $0;\n});" "<model>.find({params}, function(error, result) {...});" nil
@@ -41,4 +44,4 @@
                         nil nil nil nil)))
 
 
-;;; Do not edit! File generated at Tue Feb 19 12:44:48 2013
+;;; Do not edit! File generated at Tue Mar 19 13:50:17 2013

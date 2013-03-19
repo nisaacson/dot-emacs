@@ -4,13 +4,13 @@
 async.series([
   function (cb) {
    $0
-   cb();
+   cb()
   },
   function (cb) {
-    cb();
+    cb()
   },
   function (cb) {
-    cb();
+    cb()
   },
   ], function(err) {
-  });
+  })

@@ -46,11 +46,15 @@
 (require 'geben)
 (require 'sws-mode)
 (require 'jade-mode)
-;; (require 'make-mark-visible)
+
 (defun my-tabs-makefile-hook ()
-  (local-set-key (kbd "<tab>") '(quote insert-tab)))
-  ;; (setq indent-tabs-mode t))
+  (setq indent-tabs-mode t))
 (add-hook 'makefile-mode-hook 'my-tabs-makefile-hook)
+
+;; (defun my-tabs-makefile-hook ()
+;;   (local-set-key (kbd "<tab>") '(quote insert-tab)))
+;;   ;; (setq indent-tabs-mode t))
+;; (add-hook 'makefile-mode-hook 'my-tabs-makefile-hook)
 
 (require 'markdown-mode)
 ;;;; enable a more powerful jump back function from ace jump mode
@@ -132,7 +136,7 @@
 ;; scroll one line at a time (less "jumpy" than defaults)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; one line at a time
-(setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
+(setq mouse-wheel-progressive-speed t) ;; don't accelerate scrolling
 (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
 (setq scroll-step 1) ;; keyboard scroll one line at a time
 
@@ -147,9 +151,6 @@
 
 (add-hook 'js2-mode-hook '(lambda () (camelCase-mode 1)))
 
-(add-hook 'makefile-mode-hook
-      '(lambda()
-        (setq indent-tabs-mode t)))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; C# setup
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -289,7 +290,7 @@
  '(hl-paren-colors (quote ("firebrick1" "" "" "")))
  '(ido-auto-merge-delay-time 0.3)
  '(ido-default-buffer-method (quote selected-window))
- '(js2-global-externs (list "$" "jQuery" "iimDisplay" "iimPlay" "iimGetLastError" "iimGetLastExtract" "log_error" "breakpoint" "window" "require" "console" "exports" "process" "it" "describe" "before" "beforeEach" "after" "afterEach" "setTimeout" "__dirname" "module" "Buffer" "setInterval" "clearInterval" "emit"))
+ '(js2-global-externs (list "$" "jQuery" "iimDisplay" "iimPlay" "iimGetLastError" "iimGetLastExtract" "log_error" "breakpoint" "window" "require" "console" "exports" "process" "it" "describe" "before" "beforeEach" "after" "afterEach" "setTimeout" "__dirname" "module" "Buffer" "setInterval" "clearInterval" "emit" "gBrowser" "FormData"))
  '(js2-strict-inconsistent-return-warning nil)
  '(js2-strict-missing-semi-warning nil)
  '(js2-strict-trailing-comma-warning t)
@@ -336,3 +337,4 @@
  '(helm-selection ((t (:background "midnight blue" :underline t))))
  '(hl-line ((t (:background "#E1E1B2"))) t)
  '(ido-only-match ((t (:background "#003946" :foreground "green" :weight bold)))))
+(put 'downcase-region 'disabled nil)

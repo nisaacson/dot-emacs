@@ -11,7 +11,7 @@
 (setq key-chord-two-keys-delay 0.5)
 (require 'doxymacs)
 (require 'highlight-symbol)
-;(require 'browse-kill-ring)
+                                        ;(require 'browse-kill-ring)
 (require 'highlight-parentheses)
 (require 'ido)
 (require 'sudo-save)
@@ -84,10 +84,10 @@
 ;; (require 'el-get)
 ;; doxymacs
 (add-hook 'c-mode-common-hook
-  (lambda ()
-    (require 'doxymacs)
-    (doxymacs-mode t)
-    (doxymacs-font-lock)))
+          (lambda ()
+            (require 'doxymacs)
+            (doxymacs-mode t)
+            (doxymacs-font-lock)))
 
 (require 'idomenu)
 (require 'noah-autocomplete)
@@ -107,9 +107,9 @@
 ;; put all autosave files in the system temp directory e.g. 'C:\temp' or '/tmp'
 
 (setq backup-directory-alist
-    `((".*" . ,temporary-file-directory)))
-    (setq auto-save-file-name-transforms
-    `((".*" ,temporary-file-directory t)))
+      `((".*" . ,temporary-file-directory)))
+(setq auto-save-file-name-transforms
+      `((".*" ,temporary-file-directory t)))
 
 ;; Always delete trailing whitespace
 ;; (add-hook 'before-save-hook (lambda () (delete-trailing-whitespace)))
@@ -155,9 +155,9 @@
 ;; C# setup
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-hook 'csharp-mode-hook
-    '(lambda ()
-       (c-set-style k&r))
-    )
+          '(lambda ()
+             (c-set-style k&r))
+          )
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -169,7 +169,7 @@
 (autoload 'php-imenu-create-index "php-imenu" nil t)
 (add-hook 'php-mode-hook 'imenu-add-menubar-index)
 (add-hook 'php-mode-hook 'camelCase-mode t)
-;(add-hook 'php-mode-hook 'camelCase-mode)
+                                        ;(add-hook 'php-mode-hook 'camelCase-mode)
 (setq c-basic-offset 2)
 ;; Load the php-imenu index function
 (autoload 'php-imenu-create-index "php-imenu" nil t)
@@ -196,26 +196,32 @@
 (setq ido-everywhere t)
 (ido-mode t)
 (setq ido-enable-flex-matching t)
+(defun noah-ido-config()
+  ;; ... other ido-config here ...
+  ;; disable auto searching for files unless called explicitly with C-c C-s
+  ;; (setq ido-auto-merge-delay-time 99999)
+  ;; (define-key ido-file-dir-completion-map (kbd "C-c C-s")
+  ;;   (lambda()
+  ;;     (interactive)
+  ;;     (ido-initiate-auto-merge (current-buffer)))))
+  (add-hook 'ido-setup-hook 'noah-ido-config)
+  )
 
 
-
-;; default sources of candidates
-
-
-(defun rename-file-and-buffer (new-name)
+(defun rrename-file-and-buffer (new-name)
   "Renames both current buffer and file it's visiting to NEW-NAME."
   (interactive "sNew name: ")
   (let ((name (buffer-name))
-    (filename (buffer-file-name)))
+        (filename (buffer-file-name)))
     (if (not filename)
-    (message "Buffer '%s' is not visiting a file!" name)
+        (message "Buffer '%s' is not visiting a file!" name)
       (if (get-buffer new-name)
-      (message "A buffer named '%s' already exists!" new-name)
-    (progn
-      (rename-file name new-name 1)
-      (rename-buffer new-name)
-      (set-visited-file-name new-name)
-      (set-buffer-modified-p nil))))))
+          (message "A buffer named '%s' already exists!" new-name)
+        (progn
+          (rename-file name new-name 1)
+          (rename-buffer new-name)
+          (set-visited-file-name new-name)
+          (set-buffer-modified-p nil))))))
 
 
 ;;;;;;;;;;;;;;;;;;;;
@@ -261,7 +267,7 @@
 (defun what-face (pos)
   (interactive "d")
   (let ((face (or (get-char-property (point) 'read-face-name)
-      (get-char-property (point) 'face))))
+                  (get-char-property (point) 'face))))
     (if face (message "Face: %s" face) (message "No face at %d" pos))))
 
 (setq toolbar nil)
@@ -310,8 +316,8 @@
   (interactive)
   (shell-command
    (format "open -a /Applications/Marked.app %s"
-       (shell-quote-argument (buffer-file-name))))
-)
+           (shell-quote-argument (buffer-file-name))))
+  )
 
 ;; (setq ispell-program-name "aspell")
 ;; ;; (add-hook 'markdown-mode-hook

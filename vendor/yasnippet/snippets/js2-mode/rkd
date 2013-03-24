@@ -1,0 +1,12 @@
+#Author : Noah Isaacson <clewfirst@gmail.com>
+#name : var err = rk.truthySync(data, keys) ...
+# --
+var keys = [$1]
+var err = rk.truthySync(data, keys)
+if (err) {
+  return cb({
+  message: '$2, missing key in data',
+  error: err,
+  stack: new Error().stack
+  })
+}

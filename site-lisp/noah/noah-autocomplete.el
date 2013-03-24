@@ -3,12 +3,12 @@
 ;; ;;;;;;;;;;;;;;;;;;;;
 (require 'auto-complete-config)
 (set-default 'ac-sources
-       '(ac-source-abbrev
-         ac-source-dictionary
-         ac-source-yasnippet
-         ac-source-words-in-buffer
-         ac-source-words-in-same-mode-buffers
-         ac-source-semantic))
+             '(ac-source-abbrev
+               ;; ac-source-dictionary
+               ac-source-yasnippet
+               ac-source-words-in-buffer
+               ac-source-words-in-same-mode-buffers
+               ))
 
 (add-to-list 'ac-dictionary-directories "/Users/noah/.emacs.d/vendor/autocomplete/dict")
 (ac-config-default)

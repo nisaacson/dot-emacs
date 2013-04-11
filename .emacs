@@ -31,10 +31,7 @@
 (setq uniquify-after-kill-buffer-p t)
 (setq uniquify-ignore-buffers-re "^\\*")
 
-;; (load-file "~/.emacs.d/site-lisp/noah/color-theme-twilight-noah.el")
-;; (load-file "~/.emacs.d/site-lisp/noah/color-theme-ps-warm.el")
-
-(add-hook 'before-save-hook 'whitespace-cleanup)
+;; (add-hook 'before-save-hook 'whitespace-cleanup)
 (require 'expand-region)
 (require 'apache-mode)
 (require 'cuda-mode)
@@ -47,9 +44,15 @@
 (require 'sws-mode)
 (require 'jade-mode)
 
-(defun my-tabs-makefile-hook ()
-  (setq indent-tabs-mode t))
-(add-hook 'makefile-mode-hook 'my-tabs-makefile-hook)
+;; the best whitespace managment I have found.
+;; ethan-wspace only cleans up files you made
+;; dirty yourself so no more messy diffs!
+;; https://github.com/glasserc/ethan-wspace
+(require 'ethan-wspace)
+
+;; (defun my-tabs-makefile-hook ()
+;;   (setq indent-tabs-mode t))
+;; (add-hook 'makefile-mode-hook 'my-tabs-makefile-hook)
 
 ;; (defun my-tabs-makefile-hook ()
 ;;   (local-set-key (kbd "<tab>") '(quote insert-tab)))
@@ -91,7 +94,6 @@
 
 (require 'idomenu)
 (require 'noah-autocomplete)
-(setq-default ac-sources '(ac-source-yasnippet))
 (defun my-ac-emacs-lisp-mode ()
   (setq ac-sources '(ac-source-symbols ac-source-functions ac-source-filename ac-source-words-in-same-mode-buffers)))
 (add-hook 'emacs-lisp-mode-hook 'my-ac-emacs-lisp-mode)
@@ -104,16 +106,6 @@
 (setq initial-scratch-message nil)
 ;; put all backupfiles in 1 place
 (setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
-;; put all autosave files in the system temp directory e.g. 'C:\temp' or '/tmp'
-
-(setq backup-directory-alist
-      `((".*" . ,temporary-file-directory)))
-(setq auto-save-file-name-transforms
-      `((".*" ,temporary-file-directory t)))
-
-;; Always delete trailing whitespace
-;; (add-hook 'before-save-hook (lambda () (delete-trailing-whitespace)))
-
 
 ;; kill minibuffer command when switching windows with the mouse
 (defun stop-using-minibuffer ()
@@ -128,7 +120,12 @@
   (other-window 1)
   )
 
-
+(defun json-format ()
+  (interactive)
+  (save-excursion
+    (shell-command-on-region (mark) (point) "python -m json.tool" (buffer-name) t)
+    )
+  )
 
 (add-hook 'mouse-leave-buffer-hook 'stop-using-minibuffer)
 

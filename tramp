@@ -1,54 +1,15 @@
-;; -*- emacs-lisp -*- <13/03/27 01:17:53 /Users/noah/.emacs.d/tramp>
+;; -*- emacs-lisp -*- <13/05/12 12:19:34 /Users/noah/.emacs.d/tramp>
 ;; Tramp connection history.  Don't change this file.
 ;; You can delete it, forcing Tramp to reapply the checks.
 
-((["sudo" "root" "Gandalf" nil]
-  ("uname" "Darwin 11.4.0")
-  ("test" "test")
-  ("remote-path"
-   ("/usr/bin" "/bin" "/usr/sbin" "/sbin" "/usr/local/bin"))
-  ("remote-shell" "/bin/sh")
-  ("busybox" nil)
-  ("stat" nil)
-  ("perl-file-spec" t)
-  ("perl-cwd-realpath" t)
-  ("perl" "\\perl")
-  ("id" "/usr/bin/id")
-  ("gid-integer" 0)
-  ("readlink" nil)
-  ("file-exists" "test -e")
-  ("uid-integer" 0)
-  ("local-encoding" base64-encode-region)
-  ("local-decoding" base64-decode-region)
-  ("remote-encoding" tramp-perl-encode-with-module)
-  ("remote-decoding" tramp-perl-decode-with-module)
-  ("inline-compress" "gzip")
-  ("inline-decompress" "gzip -d"))
- (["sshx" nil "pdfer" nil nil]
-  ("uname" "Linux 3.7.1-joyent-ubuntu-12-opt")
-  ("test" "test")
-  ("remote-path"
-   ("/bin" "/usr/bin" "/sbin" "/usr/sbin" "/usr/local/bin" "/usr/local/sbin"))
-  ("remote-shell" "/bin/sh")
-  ("busybox" nil)
-  ("~" "/home/node")
-  ("ls" "/bin/ls --color=never")
-  ("ls-dired" t)
-  ("stat" "\\stat")
-  ("file-exists" "test -e")
-  ("id" "/usr/bin/id")
-  ("gid-integer" 1000)
-  ("readlink" "\\readlink")
-  ("perl-file-spec" t)
-  ("perl-cwd-realpath" t)
-  ("perl" "\\perl")
-  ("uid-integer" 1000))
+((["sshx" nil "sshx" nil nil]
+  nil)
  (["sshx" nil "dp" nil nil]
-  ("uname" "Linux 3.7.1-joyent-ubuntu-12-opt")
+  ("uname" "SunOS 5.11")
   ("test" "test")
   ("remote-path"
-   ("/bin" "/usr/bin" "/sbin" "/usr/sbin" "/usr/local/bin" "/usr/local/sbin"))
-  ("remote-shell" "/bin/sh")
+   ("/usr/xpg4/bin" "/usr/ccs/bin" "/usr/bin" "/bin" "/sbin" "/usr/sbin" "/opt/local/bin"))
+  ("remote-shell" "/usr/bin/bash")
   ("busybox" nil)
   ("perl-file-spec" t)
   ("perl-cwd-realpath" t)
@@ -56,9 +17,5 @@
   ("readlink" "\\readlink")
   ("stat" "\\stat")
   ("file-exists" "test -e")
-  ("id" "/usr/bin/id")
-  ("gid-integer" 1000)
-  ("uid-integer" 1000)
-  ("ls" "/bin/ls --color=never"))
- (["sshx" nil "165.225.132.15" nil nil]
-  nil))
+  ("id" "/usr/xpg4/bin/id")
+  ("gid-integer" 1)))

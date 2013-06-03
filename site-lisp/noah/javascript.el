@@ -7,6 +7,11 @@
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 (add-to-list 'auto-mode-alist '("\\.json$" . js2-mode))
 
+(setq js2-global-externs (list "$" "jQuery" "iimDisplay" "iimPlay" "iimGetLastError" "iimGetLastExtract" "log_error" "breakpoint" "window" "require" "console" "exports" "process" "it" "describe" "before" "beforeEach" "after" "afterEach" "setTimeout" "__dirname" "module" "Buffer" "setInterval" "clearInterval" "emit" "gBrowser" "FormData"))
+
+(setq js2-strict-inconsistent-return-warning nil)
+(setq js2-strict-missing-semi-warning nil)
+(setq js2-strict-trailing-comma-warning t)
 
 (defadvice js2-reparse (before json)
   (setq js2-buffer-file-name buffer-file-name))
